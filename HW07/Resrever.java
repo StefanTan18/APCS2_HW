@@ -4,20 +4,20 @@
 //2018-02-13
 
 public class Resrever{
-    public static String reverseLinear(String s){
+    public static String reverseLinear(String s){//decrements to reverse String
 	String retStr = "";
 	for (int i = s.length() - 1; i >= 0; i--)
 	    retStr += s.substring(i, i+1);
 	return retStr;
     }
 
-    public static String reverseLog(String s){
-        if ( s.length() <= 1 )
+    public static String reverseLog(String s){//like mergesort
+        if ( s.length() <= 1 )//splits into single letter Strings
 	    return s;
 	String leftHalf = s.substring(0,s.length() / 2);
 	String rightHalf = s.substring(s.length() / 2, s.length());
 	return (reverseLog(rightHalf)) + (reverseLog(leftHalf));
-    }
+    }//reverses and concatenates the String 
 
     public static void main(String[] args){
 	String s1 = "stressed";
