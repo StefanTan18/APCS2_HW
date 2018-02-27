@@ -50,9 +50,11 @@ public class QueenBoard
   //================= YE OLDE SEPARATOR =================
 
   /***
-   * Returns true if queen can be placed at on the row and board
-   * precondition: 
+   * Returns boolean if queen can be placed at on the row and column
+   * precondition: the board is intialized
    * postcondition: 
+   If queen can be placed then return true.
+   If queen can not be placed then return false. 
    */
   private boolean addQueen(int row, int col){
     if(_board[row][col] != 0){
