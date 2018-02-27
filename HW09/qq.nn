@@ -1,0 +1,67 @@
+Stefan Tan
+APCS2 pd1
+HW09 -- Yaaasss Queens
+2018-02-26
+
+2x2:
+
+It is not possible to place 2 queens on a 2x2 chessboard without it being
+able to attack each other because no matter where you place the 2 queens, they
+will always be horizontally, vertically, or diagonally from each other.
+0 solution
+
+ 0  Q                
+ Q  0
+
+3x3:
+
+It is not possible to place 3 queens on a 3x3 chessboard without it being
+able to attack each other because just like in the 2 by 2 chessboard, no matter
+where you place the queens, there will be always at least 1 queen that is
+located horizontally, vertically, or diagonally from another queen.
+0 solution
+
+ 0  0  Q 
+ Q  0  0  
+ 0  Q  0  
+
+4x4:
+
+It is possible to place 4 queens on a 4x4 chessboard without it being able to
+attack each other because we know from observations that the only way that a
+queen is not able to attack another queen is when it is in a position that is in
+a L-shaped away from the queen.
+1 solution
+
+ 0  0  Q  0
+ Q  0  0  0     
+ 0  0  0  Q      
+ 0  Q  0  0      
+
+5x5:
+
+It is possible to place 5 queens on a 5x5 chessboard without it being able to
+attack each other because there is enough space to make L-shaped positions just
+like what we did for a 4 by 4 chessboard.
+2 solutions
+ 
+6x6:
+
+It is possible to place 6 queens on a 6x6 chessboard without it being able to
+attack each other because from 4x4 to larger there is enough space to make
+L-shapes.
+1 solution 
+ 
+7x7:
+
+It is possible to place 7 queens on a 7x7 chessboard without it being able to
+attack each other because from 4x4 to larger there is enough space to make
+L-shapes.
+4 solutions
+
+8x8:
+
+It is possible to place 8 queens on a 8x8 chessboard without it being able to
+attack each other because from 4x4 to larger there is enough space to make
+L-shapes.
+6 solutions 
