@@ -1,0 +1,22 @@
+Stefan Tan
+APCS2 pd1
+HW11 -- Get On The Bus
+2018-02-28
+
+Task: Express your algorithm for generating a sequence of moves a knight may
+make to touch each square of an n*n grid exactly once --- or to determine that
+this task is impossible.
+
+ Step-by-Step Procedure
+1. Checks if the the knight has visited all the squares by seeing if the knight
+had made n*n moves.
+
+2. If it is true then that is the solution.
+
+3. If it is false then add a move and recursively check it this move leads
+to a solution.
+
+4. If it doesn't lead to the solution then remove that move and add another
+move.
+
+5. If none of the moves work then it is impossible. 
