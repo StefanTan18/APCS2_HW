@@ -1,0 +1,36 @@
+Stefan Tan
+APCS2 pd1
+HW14
+2018-03-05
+
+Section Uno:
+Q1: From any starting position, can an open tour always be found? Explain.
+From any starting position, an open tour can not always be found. The tour must
+be started at a specific location so that the pattern of the moves of the
+knights could work to complete an open tour. 
+
+Q2: Same, but for closed tour.
+From any starting position, an closed tour can not always be found. The reason
+is the same as the open tour. The only way for there to exist a closed tour for
+a board, there exists a pattern in which the knights have to move. Starting off
+at a different position would throw off the pattern which would lead it to not
+being possible.
+
+Q3: How do you explain the increase in execution time as n increases?
+As n increases, the chance of the code needing to backtrack increases and so
+does the amount of backtracking the code does.
+
+Q4: Thoughts on optimization?
+Have the code try all the starting positions to see if an open or closed tour of
+Knight's Tour exists.
+
+Section Deux:
+State your cleanest algo for finding your way out of the maze.
+Pseudocode:
+if current pos equals "@"
+   print path and end loop
+else
+   chooses a possible move which are the spaces are one block vertically or
+   horizontally from current pos and checks if the move leads to a solution
+   if it doesn't choose another possible move and repeat the process
+   if no possible moves work then the maze is impossible
