@@ -1,0 +1,36 @@
+//Stefan Tan
+//APCS2 pd1
+//HW21c -- Rockin’ Through the Night
+//2018-03-19
+
+public class LList implements List{
+    private LLNode head;
+
+    public boolean add(String x){
+	head.setCargo(x)
+	return true;
+    }
+
+    public String get(int i){
+	if(i = 0){
+	    return head.getCargo();
+	}
+	else{
+	    i--;
+	    return get(head.getNext());
+	}
+    }
+
+    public String set(int i, String x){
+	while(i > 0){
+	    head.getNext();
+	    i--;
+	}
+	head.setCargo(x);
+    }
+}
+	       
+	    
+	
+	    
+			      
