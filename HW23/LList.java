@@ -1,4 +1,4 @@
-//Stefan Tan and Benjamin Platt
+//Team ms_Jackson - Stefan Tan and Benjamin Platt
 //APCS2 pd1
 //HW23 -- Give and Take
 //2018-03-22
