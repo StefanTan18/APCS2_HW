@@ -1,3 +1,8 @@
+//Stefan Tan and Benjamin Platt
+//APCS2 pd1
+//HW23 -- Give and Take
+//2018-03-22
+
 /*****************************************************
  * class LList
  * Implements a linked list of LLNodes, each containing String data
@@ -27,12 +32,24 @@ public class LList implements List //your List interface must be in same dir
 	_size++;
 	return true;
     }
-
-    public void add(int i, String newVal){
+    
+    public void add( int i, String s ) {
 	LLNode temp = _head;
-	int ctr = 0;
-	while (ctr < i){
-	}}
+	for (int ctr = 0; ctr < i - 1; i++)
+	    temp = temp.getNext();
+	LLNode insert = new LLNode(s, temp.getNext());
+	temp.setNext(insert);
+    }
+    
+    public String remove(int i){
+	LLNode temp = _head;
+        for (int ctr = 0; ctr < i - 1; i++)
+	    temp = _head;
+	String retVal = temp.getNext().getCargo();
+	temp.setNext(temp.getNext().getNext());
+	_size--;
+	return retVal;
+    }	
 		       
     public String get( int index )
     {
@@ -122,6 +139,14 @@ public class LList implements List //your List interface must be in same dir
 
 	james.set( 1, "got" );
 	System.out.println( "...and now 2nd item is: " + james.set(1,"got") );
+
+	System.out.println( james );
+
+	james.add(1, "beat");
+
+	System.out.println( james );
+
+	System.out.println("Removed: " + james.remove(1));
 
 	System.out.println( james );
     }
