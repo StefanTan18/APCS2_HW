@@ -1,7 +1,7 @@
 //Stefan Tan
 //APCS2 pd1
-//HW24b -- On the DLL
-//2018-03-23
+//HW25 -- Generically Speaking...
+//2018-03-26
 
 /*****************************************************
  * class LList
@@ -9,7 +9,7 @@
  * new in v2: add-at-index, remove
  *****************************************************/
 
-public class LList<String> implements List<T> //your List interface must be in same dir
+public class LList<T> implements List<T> //your List interface must be in same dir
 { 
 
     //instance vars
@@ -27,7 +27,7 @@ public class LList<String> implements List<T> //your List interface must be in s
     
     //--------------v  List interface methods  v--------------
     
-    public boolean add( <String> newVal )
+    public boolean add( T newVal )
     {
 	DLLNode tmp = new DLLNode( newVal, null, null );
 	if (_head == null){
@@ -44,12 +44,12 @@ public class LList<String> implements List<T> //your List interface must be in s
     }
 
     
-    public <String> get( int index )
+    public T get( int index )
     {
 	if ( index < 0 || index >= size() )
 	    throw new IndexOutOfBoundsException();
 
-	String retVal;
+	T retVal;
 	DLLNode tmp = _head; //create alias to head
 
 	//walk to desired node
@@ -57,12 +57,12 @@ public class LList<String> implements List<T> //your List interface must be in s
 	    tmp = tmp.getNext();
 
 	//check target node's cargo hold
-	retVal = tmp.getCargo();
+	retVal = (T)tmp.getCargo();
 	return retVal;
     }
 
 
-    public <String> set( int index, <String> newVal )
+    public T set( int index, T newVal )
     {
 
 	if ( index < 0 || index >= size() )
@@ -75,7 +75,7 @@ public class LList<String> implements List<T> //your List interface must be in s
 	    tmp = tmp.getNext();
 
 	//store target node's cargo
-	String oldVal = tmp.getCargo();
+	T oldVal = (T)tmp.getCargo();
 
 	//modify target node's cargo
 	tmp.setCargo( newVal );
@@ -89,7 +89,7 @@ public class LList<String> implements List<T> //your List interface must be in s
     
 
     //insert a node containing newVal at position index
-    public void add( int index, String newVal ) {
+    public void add( int index, T newVal ) {
 	
 	if ( index < 0 || index >= size() )
 	    throw new IndexOutOfBoundsException();
@@ -118,26 +118,26 @@ public class LList<String> implements List<T> //your List interface must be in s
 
 
     //remove node at pos index, return its cargo
-    public String remove( int index ) {
+    public T remove( int index ) {
 
 	if ( index < 0 || index >= size() )
 	    throw new IndexOutOfBoundsException();
 
-	String retVal;
+        T retVal;
 	DLLNode tmp = _head; //create alias to head
 
 	//if index==0, remove head node
 	if ( index == 0 ) {
 	    
 	    //check target node's cargo hold
-	    retVal = _head.getCargo();
+	    retVal = (T)_head.getCargo();
 	    //remove target node
 	    _head = _head.getNext();
 	    _size--;
 	    return retVal;
 	}
 	if (index == size() - 1){
-	    retVal = _tail.getCargo();
+	    retVal = (T)_tail.getCargo();
 	    _tail = _tail.getPrev();
 	    _tail.setNext(null);
 	    _size--;
@@ -149,7 +149,7 @@ public class LList<String> implements List<T> //your List interface must be in s
 		tmp = tmp.getNext();
 
 	    //check target node's cargo hold
-	    retVal = tmp.getNext().getCargo();
+	    retVal = (T)tmp.getNext().getCargo();
 
 	    //remove target node
 	    tmp.setNext( tmp.getNext().getNext() );

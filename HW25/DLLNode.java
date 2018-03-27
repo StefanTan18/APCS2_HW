@@ -10,14 +10,14 @@
  * Stores data of type String
  *****************************************************/
 
-public class DLLNode 
+public class DLLNode<T> 
 {
-    private String _cargo;    //cargo may only be of type String
+    private T _cargo;    //cargo may only be of type String
     private DLLNode _nextNode, _prevNode; //pointers to next, prev DLLNodes
 
     //YOUR IMPLEMENTATION HERE...
     // constructor -- initializes instance vars
-    public DLLNode( String value, DLLNode next, DLLNode prev ) {
+    public DLLNode( T value, DLLNode next, DLLNode prev ) {
 	_cargo = value;
 	_nextNode = next;
 	_prevNode = prev;
@@ -25,7 +25,7 @@ public class DLLNode
 
 
     //--------------v  ACCESSORS  v--------------
-    public String getCargo() { return _cargo; }
+    public T getCargo() { return _cargo; }
 
     public DLLNode getNext() { return _nextNode; }
 
@@ -34,8 +34,8 @@ public class DLLNode
 
 
     //--------------v  MUTATORS  v--------------
-    public String setCargo( String newCargo ) {
-	String foo = getCargo();
+    public T setCargo( T newCargo ) {
+	T foo = getCargo();
 	_cargo = newCargo;
 	return foo;
     }
