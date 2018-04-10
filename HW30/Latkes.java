@@ -1,3 +1,8 @@
+//Stefan Tan
+//APCS2 pd1
+//HW30 -- Stacks on Stacks on Stacks on Stacks...
+//2018-04-09
+
 /*****************************************************
  * skeleton for class Latkes
  * Implements a stack of Strings using an encapsulated array
@@ -12,38 +17,48 @@ public class Latkes
   public Latkes( int size )
   {
       _stack = new String[size];
-      _stackSize = size;
+      _stackSize = 0;
   }
 
   //means of insertion
   public void push( String s )
   {
-
+      if (isFull())
+	  System.out.println("Stack is full.");
+      else{
+	  _stack[_stackSize] = s;
+	  _stackSize++;
+      }
   }
 
   //means of removal
   public String pop( )
   {
-
+      if (isEmpty())
+	  return "Stack is empty.";
+      else{
+	  String retVal = _stack[_stackSize - 1];
+	  _stackSize--;
+	  return retVal;
+      }
   }
 
   //chk for emptiness
   public boolean isEmpty()
   {
-
+      return _stackSize == 0;
   }
 
   //chk for fullness
   public boolean isFull()
   {
-
+      return _stack.length == _stackSize;
   }
 
 
   //main method for testing
   public static void main( String[] args )
   {
-    /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
       Latkes tastyStack = new Latkes(10);
 
       tastyStack.push("aoo");
@@ -86,6 +101,7 @@ public class Latkes
 
       //stack empty by now; SOP(null)
       System.out.println( tastyStack.pop() );
+      /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
       ^~~~~~~~~~~~~~~~AWESOME~~~~~~~~~~~~~~~^*/
 
   }//end main()
