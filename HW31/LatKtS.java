@@ -39,8 +39,6 @@ public class LatKtS
     public static boolean allMatched( String s )
     {
 	Latkes matcher = new Latkes(s.length());
-	if (s.equals(""))
-	    return true;
 	for (int i = 0; i < s.length(); i++){
 	    if (s.substring(i,i+1).equals("{")||s.substring(i,i+1).equals("(")||s.substring(i,i+1).equals("["))
 		matcher.push(s.substring(i,i+1));
