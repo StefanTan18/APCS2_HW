@@ -1,3 +1,8 @@
+//Stefan Tan
+//APCS2 pd1
+//HW31 -- Stack: What Is It Good For?
+//2018-04-10
+
 /*****************************************************
  * skeleton for class LatKtS
  * Driver class for Latkes.
@@ -17,8 +22,11 @@ public class LatKtS
   {
       String retVal = "";
       Latkes reversal = new Latkes(s.length());
-      for (int i = 0; i < s.length(); i++){
-	  reversal.push(s.substring());
+      for (int i = 0; i < s.length(); i++)
+	  reversal.push(s.substring(i,i+1));
+      for (int i = s.length(); i > 0; i--)
+	  retVal += reversal.pop();
+      return retVal;
   }//end flip()
 
 
@@ -28,16 +36,34 @@ public class LatKtS
    *                allMatched( "([)]" )        -> false
    *                allMatched( "" )            -> true
    **********************************************************/
-  public static boolean allMatched( String s )
-  {
-
-  }//end allMatched()
-
-
+    public static boolean allMatched( String s )
+    {
+	Latkes matcher = new Latkes(s.length());
+	if (s.equals(""))
+	    return true;
+	for (int i = 0; i < s.length(); i++){
+	    if (s.substring(i,i+1).equals("{")||s.substring(i,i+1).equals("(")||s.substring(i,i+1).equals("["))
+		matcher.push(s.substring(i,i+1));
+	    else if (s.substring(i,i+1).equals("}")){
+		if (matcher.isEmpty() || !matcher.pop().equals("{"))
+		    return false;
+	    }
+	    else if (s.substring(i,i+1).equals(")")){
+		if (matcher.isEmpty() || !matcher.pop().equals("("))
+		    return false;
+	    }
+	    else if (s.substring(i,i+1).equals("]")){
+		if (matcher.isEmpty() || !matcher.pop().equals("["))
+		    return false;
+	    }
+	}
+	return matcher.isEmpty();
+    }//end allMatched()
+    
+	
   //main method to test
   public static void main( String[] args )
   {
-    /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
     System.out.println(flip("stressed"));
     System.out.println(allMatched( "({}[()])" )); //true
     System.out.println(allMatched( "([)]" ) ); //false
@@ -45,7 +71,8 @@ public class LatKtS
     System.out.println(allMatched( "](){([])}" ) ); //false
     System.out.println(allMatched( "(){([])}(" ) ); //false
     System.out.println(allMatched( "()[[]]{{{{((([])))}}}}" ) ); //true
+    /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
       ^~~~~~~~~~~~~~~~AWESOME~~~~~~~~~~~~~~~^*/
   }
-
+    
 }//end class LatKtS
