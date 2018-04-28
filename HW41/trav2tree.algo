@@ -1,0 +1,19 @@
+Stefan Tan
+APCS2 pd1
+HW41 -- A Tree Grows in 251
+2018-04-27
+
+Minimum Prerequisite Information:
+The tree must be complete.
+We must give be more than 1 transversal to reconstruct a tree. 
+
+Procedure for Reconstructing a Binary Tree, Given Transversals:
+1. Determine what type of transversals you were given. (Pre-order, In-order, Post-order)
+
+2. If one of the transversal that you were given was pre-order then you know that the first node of the transversal is the root of the tree. From there the next nodes up until the middle of the transversal is the subtrees of from the left branch of the root. The last few nodes are the leaves of the tree. Then you go down the right branch of the tree and repeat the same procedure.
+
+3. If one of the transversal that you were given was in-order then the first node is the leaf of the left branch of the tree. The next node would be the parent of that node and the node after that would be the other child of the parent node. Keep progressing up the tree like that until you reach the root. When you reach the root, repeat the same procedure on the right branch.
+
+4. If one of the the transveral that you were given was post-order then the first node is also the leaf of the left branch of the tree. The next node would be the other child node but if there isnt then move up to the parent node. Repeat the same the on the right branch. Keep doing this until you reach the root which should be the last node listed in the given post-order transversal.
+
+5. Compare the constructed trees that result from each given transversal and make the final tree match the requirements of the given transversal.
