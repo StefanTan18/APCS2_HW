@@ -1,7 +1,7 @@
 //Stefan Tan
 //APCS2 pd1
-//HW43 -- BSTs is the Perfect Place for Shade
-//2018-05-01
+//HW44 -- Prune Your Tree
+//2018-05-02
 
 /*****************************************************
  * class BST - v1:partial
@@ -191,16 +191,40 @@ public class BST
 	}
     }
 
-    public TreeNode remove(int num){
-        TreeNode leader = _root;
-	TreeNode follower = _root;
-	if (leader.getLeft() == null && leader.getRight() == null)
-	    leader = null;
-	if (leader.getLeft() != null && leader.getRight() == null)
-	    follower.setLeft(leader.getLeft());
+    public void remove(int target){
+	_root = remove(_root, target);
     }
-	    
 
+    public TreeNode remove(TreeNode currNode, int target){
+	if (currNode == null) //tree is empty
+	    return currNode;
+	if (target < currNode.getValue()) //recursion down tree
+	    currNode.setLeft(remove(currNode.getLeft(), target));
+	else if (target > currNode.getValue())
+	    currNode.setRight(remove(currNode.getRight(), target));
+	else{
+	    //node with one or no child
+	    if (currNode.getLeft() == null)
+		return currNode.getRight(); 
+	    else if (currNode.getRight() == null)
+		return currNode.getLeft();
+	    //gets smallest in the right subtree
+	    currNode.setValue(minVal(currNode.getRight()));
+	    //deletes it
+	    currNode.setRight(remove(currNode.getRight(), currNode.getValue()));
+	}
+	return currNode;
+    }
+
+    public int minVal(TreeNode currNode){
+	int min = currNode.getValue();
+	while (currNode.getLeft() != null){
+	    min = currNode.getLeft().getValue();
+	    currNode = currNode.getLeft();
+	}
+	return min;
+    }
+		
     //main method for testing
     public static void main( String[] args )
     {
@@ -235,6 +259,21 @@ public class BST
 	System.out.println(arbol.search(10));
 	System.out.println(arbol.height());
 	System.out.println(arbol.numLeaves());
+
+	arbol.remove(2);
+	System.out.println( "\n-----------------------------");
+	System.out.println( "in-order traversal:" );
+	arbol.inOrderTrav();
+
+	arbol.remove(4);
+	System.out.println( "\n-----------------------------");
+	System.out.println( "in-order traversal:" );
+	arbol.inOrderTrav();
+
+	arbol.remove(6);
+	System.out.println( "\n-----------------------------");
+	System.out.println( "in-order traversal:" );
+	arbol.inOrderTrav();
     }
 
 }//end class
